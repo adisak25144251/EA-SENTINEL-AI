@@ -1,0 +1,24 @@
+pip install fastapi uvicorn httpx pandas numpy scikit-learn
+รัน server
+uvicorn main:app --reload --port 8000
+cd E:\ea-sentinel-ai
+.\.venv\Scripts\python.exe -m uvicorn main:app --reload --port 8000
+cd E:\ea-sentinel-ai
+& .\.venv\Scripts\Activate.ps1
+python -m uvicorn main:app --app-dir ai-service --host 127.0.0.1 --port 8000 --reload --log-level debug
+
+python -m uvicorn main:app --app-dir ai-service --host 0.0.0.0 --port 8000 --reload
+
+cd E:\ea-sentinel-ai
+& .\.venv\Scripts\Activate.ps1
+python -m uvicorn main:app --app-dir ai-service --host 127.0.0.1 --port 8000 --reload
+$payload = @{ email="YOUR_EMAIL"; password="YOUR_PASSWORD" } | ConvertTo-Json
+Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/myfxbook-proxy/login.json -ContentType "application/json" -Body $payload
+
+$r = Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/myfxbook-proxy/login.json -ContentType "application/json" -Body $payload
+$r | Format-List *
+
+session : OXwq7QTTvinJ5TuckWbVOa0TPi20rnsvehZJnbY9n2%2FlUspbLNcJRfm9wYX3Ux1WpNPFUAA%2FT2K%2FOUc%2FQYBdjw%3D%3D
+
+$payload2 = @{ session="OXwq7QTTvinJ5TuckWbVOa0TPi20rnsvehZJnbY9n2%2FlUspbLNcJRfm9wYX3Ux1WpNPFUAA%2FT2K%2FOUc%2FQYBdjw%3D%3D" } | ConvertTo-Json
+Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/myfxbook-proxy/get-my-accounts.json -ContentType "application/json" -Body $payload2

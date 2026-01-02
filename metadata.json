@@ -1,0 +1,5 @@
+{
+  "name": "EA Sentinel AI",
+  "description": "Advanced AI module for analyzing Expert Advisor trading performance, detecting market regimes, and generating Python training templates.",
+  "requestFramePermissions": []
+}
